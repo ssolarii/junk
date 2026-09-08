@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Itzat STEAM Academy - Home (Official)</title>
+  
+  <!-- Intentionally broken external font/stylesheet link to cause 404 & FOUT/fallback glitches -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=NonExistentFontCustom1234:wght@400;700&display=swap">
+
+  <style>
+    /* Severe global issues: forced horizontal scroll, terrible font fallback stacks */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f6f8fa;
+      /* Calls a missing font name first, defaulting abruptly to an unstyled generic serif/curses stack */
+      font-family: "NonExistentFontCustom1234", "Papyrus", "Times New Roman", serif;
+      width: 175vw; /* Extreme horizontal overflow bug */
+      overflow-x: scroll;
+      cursor: wait; /* Constant loading cursor annoyance */
+    }
+
+    /* Frustration Banner and Interactive Dialog */
+    #tracker-hud {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1e272e;
+      color: #ffffff;
+      padding: 20px 28px;
+      border-radius: 12px;
+      border: 2px solid #ff3f34;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      font-family: Arial, sans-serif;
+      z-index: 999999;
+      max-width: 380px;
+    }
+
+    #tracker-hud .seconds {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #ff3f34;
+    }
+
+    #hud-question {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #d2dae2;
+    }
+
+    .survey-btns {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .survey-btn {
+      background: #ff3f34;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 0.85rem;
+    }
+
+    .survey-btn.alt {
+      background: #485460;
+    }
+
+    /* Bug: Overlapping, completely misaligned top bar */
+    header {
+      background-color: #0c2461;
+      height: 90px;
+      position: relative;
+      border-bottom: 5px dashed #ffa801;
+    }
+
+    .brand-title {
+      font-size: 34px;
+      font-weight: bold;
+      color: #00d2d3;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      letter-spacing: -2px; /* Text squished together */
+      z-index: 2;
+    }
+
+    /* Nav links clipping directly through the school title */
+    nav {
+      position: absolute;
+      top: 25px;
+      left: 140px; /* Deliberately collides with the header text */
+      display: flex;
+      gap: 24px;
+      z-index: 3;
+    }
+
+    nav a {
+      color: #ff9ff3;
+      background: #222f3e;
+      padding: 4px 8px;
+      text-decoration: line-through;
+      font-size: 14px;
+    }
+
+    /* Bug: Unstyled raw list marker glitch */
+    .broken-list {
+      position: absolute;
+      top: 55px;
+      left: 20px;
+      list-style-type: square;
+      display: flex;
+      gap: 30px;
+      color: #fff;
+      font-size: 11px;
+    }
+
+    /* Main layout chaos */
+    .container {
+      position: relative;
+      margin: 40px;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      border: 3px solid #ff5e57;
+      padding: 40px 30px;
+      width: 620px;
+      box-shadow: 15px 15px 0px #000;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Zero contrast: vibrant yellow on white background */
+    .illegible-heading {
+      color: #fffa65;
+      background-color: #ffffff;
+      font-size: 40px;
+      margin: 0 0 10px 0;
+      text-shadow: 1px 1px 0 #fff; /* Blurs out edges */
+    }
+
+    .subtext {
+      color: #c8d6e5; /* Very faint gray text */
+      font-size: 15px;
+      line-height: 1; /* Crushes lines on top of each other */
+    }
+
+    /* Collapsing element that physically covers the text */
+    .announcement-overlay {
+      position: absolute;
+      top: 100px;
+      left: 320px;
+      width: 420px;
+      background: rgba(10, 61, 98, 0.92);
+      color: #fff;
+      padding: 25px;
+      border: 4px dotted #00d2d3;
+      transform: rotate(-3deg);
+      z-index: 10;
+    }
+
+    /* Broken media container displaying missing asset icons */
+    .broken-media-shelf {
+      margin-left: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .broken-img {
+      width: 280px;
+      height: 180px;
+      border: 2px solid #576574;
+      background: #ee5253;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    /* Runaway button that escapes when you try to click it */
+    #runaway-btn {
+      position: relative;
+      padding: 14px 28px;
+      background-color: #10ac84;
+      color: white;
+      font-weight: bold;
+      border: 3px outset #1dd1a1;
+      cursor: pointer;
+      margin-top: 25px;
+      transition: all 0.12s ease;
+    }
+
+    /* Footer caught in the middle of the screen */
+    footer {
+      position: absolute;
+      top: 480px;
+      left: 80px;
+      background: #000;
+      color: #576574;
+      padding: 15px 40px;
+      width: 500px;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tracking HUD asking the user directly about their frustration -->
+  <div id="tracker-hud">
+    <div>Frustration Benchmark:</div>
+    <div><span class="seconds" id="timer">0</span> seconds wasted</div>
+    <div id="hud-question">Are you struggling to navigate this page? Most people give up after 4 to 6 seconds.</div>
+    <div class="survey-btns">
+      <button class="survey-btn" onclick="logResponse('frustrated')">Yes, it's unusable</button>
+      <button class="survey-btn alt" onclick="logResponse('leaving')">Close Tab</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="brand-title">Itzat STEAM Academy</div>
+    <nav>
+      <a href="#">Admissions</a>
+      <a href="#">Curriculum</a>
+      <a href="#">Robotics Labs</a>
+      <a href="#">Faculty Directory</a>
+    </nav>
+    <ul class="broken-list">
+      <li>Portal Offline</li>
+      <li>Error: 404 assets missing</li>
+    </ul>
+  </header>
+
+  <div class="container">
+    <div class="hero-card">
+      <h1 class="illegible-heading">Leading STEAM Education</h1>
+      <p class="subtext">
+        Welcome to the central academic portal. Our mission fosters student innovation across software engineering, digital arts, structural design, and mathematics. Access your student schedules, lab reserves, and grading criteria below.
+      </p>
+      
+      <button id="runaway-btn" onmouseover="evadeCursor()">Submit Enrollment Form</button>
+    </div>
+
+    <!-- Announcement block directly obscuring the text behind it -->
+    <div class="announcement-overlay">
+      <h2 style="margin-top: 0; color: #ff9ff3;">Critical Notice: Layout Malfunction</h2>
+      <p style="font-size: 13px; line-height: 1.3;">
+        This block is intentionally overflowing and blocking underlying materials. Notice how quickly unreadable typography, overlapping boxes, and missing styles destroy your focus.
+      </p>
+    </div>
+
+    <div class="broken-media-shelf">
+      <!-- Broken image calls -->
+      <img class="broken-img" src="./missing-directory/steam-lab-photo.jpg" alt="Missing Campus Lab Photo [404]">
+      <img class="broken-img" src="./assets/banners/student_portal_header.png" alt="Portal Graphic Unreachable">
+    </div>
+  </div>
+
+  <footer>
+    Itzat STEAM Academy &copy; All rights reserved. Database connection unstable.
+  </footer>
+
+  <script>
+    let seconds = 0;
+    const timerEl = document.getElementById('timer');
+    const questionEl = document.getElementById('hud-question');
+
+    // Live timer that updates the interactive prompt as frustration climbs
+    setInterval(() => {
+      seconds++;
+      timerEl.textContent = seconds;
+
+      if (seconds === 5) {
+        questionEl.innerHTML = "<strong>5 seconds in:</strong> Would you have closed this site already if it were a real school page?";
+      } else if (seconds === 10) {
+        questionEl.innerHTML = "<strong>10 seconds:</strong> You are still here, but can you even read the header or click the submit button?";
+      } else if (seconds >= 20) {
+        questionEl.innerHTML = "<strong>Over 20 seconds:</strong> You have spent way longer than average dealing with missing fonts, broken CSS, and obstructed buttons.";
+      }
+    }, 1000);
+
+    // Evading button script to simulate interactive brokenness
+    function evadeCursor() {
+      const btn = document.getElementById('runaway-btn');
+      const randomX = Math.floor(Math.random() * 300) - 150;
+      const randomY = Math.floor(Math.random() * 200) - 100;
+      btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }
+
+    function logResponse(type) {
+      if (type === 'frustrated') {
+        alert("Point proven: poor typography, missing assets, and overlapping layouts ruin user trust immediately.");
+      } else {
+        alert("Most visitors leave broken websites within the first few seconds without clicking anything.");
+      }
+    }
+  </script>
+</body>
+</html>
