@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Likes Hearts</title>
+<style>
+:root{--bg:#1c1030;--heart:#ff3b6b;--grey:#8b86a0;--ink:#fff;box-sizing:border-box}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden;background:var(--bg);-webkit-tap-highlight-color:transparent}
+body{font-family:"Trebuchet MS","Segoe UI",Helvetica,Arial,sans-serif;color:var(--ink);user-select:none}
+#stage{position:fixed;inset:0;height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+#main{width:min(58vw,300px);height:min(58vw,300px);transition:transform .15s}
+#main path{fill:var(--heart);transition:fill 1s}
+#main.off path{fill:var(--grey)}
+#count{font-size:clamp(64px,24vw,150px);font-weight:800;margin-top:10px;font-variant-numeric:tabular-nums;transition:color 1s}
+#count.off{color:var(--grey)}
+#hint{position:absolute;bottom:calc(40px + env(safe-area-inset-bottom,0));font-size:18px;color:#cfc9e6;transition:opacity .4s}
+#hint.hide{opacity:0}
+.h{position:absolute;pointer-events:none;will-change:transform,opacity;line-height:1}
+.up{animation:up var(--d) ease-out forwards}
+.down{animation:down var(--d) ease-in forwards}
+@keyframes up{from{opacity:1;transform:translateY(0) scale(.7)}to{opacity:0;transform:translateY(-105vh) scale(1.3)}}
+@keyframes down{from{opacity:.9;transform:translateY(0) scale(1)}to{opacity:0;transform:translateY(105vh) scale(.8)}}
+@media (prefers-reduced-motion:reduce){.up,.down{animation-duration:.01s}}
+</style>
+</head>
+<body>
+<div id="stage" role="button" aria-label="Tap to play the likes animation">
+  <svg id="main" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 5 6.4 5c2 0 3.6 1.1 4.6 2.7h2C14 6.1 15.6 5 17.6 5 21 5 23.1 8.4 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg>
+  <div id="count">0</div>
+  <div id="hint">Tap to start</div>
+</div>
+<script>
+(function(){
+  var st=document.getElementById('stage'),main=document.getElementById('main'),
+      count=document.getElementById('count'),hint=document.getElementById('hint'),
+      PEAK=12400,LOW=3,RISE=4500,HOLD=1000,FALL=3500,running=false;
+  function fmt(n){n=Math.round(n);return n>=1000?(n/1000).toFixed(1)+'K':String(n)}
+  function ease(t){return 1-Math.pow(1-t,3)}
+  function spawn(dir){
+    var e=document.createElement('div');
+    e.className='h '+dir;
+    e.textContent='\u2764\uFE0F';
+    if(dir==='down')e.style.filter='grayscale(1)';
+    e.style.left=(Math.random()*92)+'%';
+    e.style.fontSize=(22+Math.random()*34)+'px';
+    e.style[dir==='up'?'bottom':'top']='-40px';
+    e.style.setProperty('--d',(1.8+Math.random()*1.6)+'s');
+    st.appendChild(e);setTimeout(function(){e.remove()},3600);
+  }
+  function tween(a,b,ms,fn,done){
+    var s=performance.now();
+    (function step(now){
+      var t=Math.min(1,(now-s)/ms);fn(a+(b-a)*ease(t));
+      if(t<1)requestAnimationFrame(step);else if(done)done();
+    })(s);
+  }
+  function play(){
+    if(running)return;running=true;
+    hint.classList.add('hide');
+    main.classList.remove('off');count.classList.remove('off');count.textContent='0';
+    var b=setInterval(function(){spawn('up');spawn('up')},110);
+    tween(0,PEAK,RISE,function(v){
+      count.textContent=fmt(v);
+      main.style.transform='scale('+(1+0.08*Math.sin(v/90))+')';
+    },function(){
+      clearInterval(b);main.style.transform='';
+      setTimeout(function(){
+        main.classList.add('off');count.classList.add('off');
+        var d=setInterval(function(){spawn('down')},140);
+        tween(PEAK,LOW,FALL,function(v){count.textContent=fmt(v)},function(){
+          clearInterval(d);
+          setTimeout(function(){hint.textContent='Tap to replay';hint.classList.remove('hide');running=false},1500);
+        });
+      },HOLD);
+    });
+  }
+  st.addEventListener('click',play);
+  document.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();play()}});
+})();
+</script>
+</body>
+</html>
