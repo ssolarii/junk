@@ -1,0 +1,133 @@
+@font-face {font-family:DejaVu;src:url('../assets/fonts/DejaVuSans.ttf');font-display:swap;}
+@font-face {font-family:DejaVu;src:url('../assets/fonts/DejaVuSans-Bold.ttf');font-weight:600;font-display:swap;}
+[data-theme="vintage"] {
+  --paper: #008080;
+  --face: #C0C0C0;
+  --recess: #FFFFFF;
+  --ink: #000000;
+  --muted: #444444;
+  --brass: #000080;
+  --edge: #000000;
+  --body-material: #C0C0C0;
+  --key-material: #C0C0C0;
+  --key-pressed: #DFDFDF;
+  --brass-material: #000080;
+  --brass-pressed: #000060;
+  --well-material: #FFFFFF;
+  --highlight: #FFFFFF;
+  --bottom-edge: #808080;
+  --well-edge: #000000;
+  --contact-shadow: none;
+  --key-relief: inset -1px -1px #000000, inset 1px 1px #FFFFFF, inset -2px -2px #808080, inset 2px 2px #DFDFDF;
+  --well-relief: inset -1px -1px #FFFFFF, inset 1px 1px #808080, inset -2px -2px #DFDFDF, inset 2px 2px #000000;
+  --body-relief: inset -1px -1px #000000, inset 1px 1px #FFFFFF, inset -2px -2px #808080, inset 2px 2px #DFDFDF;
+  --emboss: none;
+  --engrave: none;
+  --r-body: 0px;
+  --r-key: 0px;
+  --r-well: 0px;
+  --background: var(--paper);
+  --surface: var(--face);
+  --inset: var(--recess);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --accent: var(--brass);
+  --accent-contrast: #FFFFFF;
+  --border: var(--edge);
+  --focus-ring: #000000;
+  --error: #800000;
+  --success: #000080;
+  --font-interface: DejaVu, sans-serif;
+  --font-display: DejaVu, sans-serif;
+  --type-xs: 14px;
+  --type-base: 16px;
+  --type-help: 18px;
+  --type-control: 24px;
+  --type-wordmark: 18px;
+  --type-title: 30px;
+  --type-title-compact: 28px;
+  --type-title-mobile: 24px;
+  --type-dialog-title: 18px;
+  --type-wordmark-mobile: 18px;
+  --type-title-small: 22px;
+  --weight-interface: 400;
+  --weight-emphasis: 600;
+  --weight-display: 600;
+  --leading-interface: 1.5;
+  --leading-title: 1.2;
+  --leading-dialog: 1.3;
+  --leading-station: 1.35;
+  --tracking-interface: normal;
+  --tracking-title: normal;
+  --tracking-title-mobile: normal;
+  --r-dot: 0px;
+  --r-switch: 0px;
+  --r-thumb: 0px;
+  --r-panel: 0px;
+  --r-option: 0px;
+  --r-field: 0px;
+  --r-badge-small: 0px;
+  --r-body-mobile: 0px;
+  --r-badge-mobile: 0px;
+  --panel-radius: 0px;
+  --r-edge-to-edge: 0;
+  --line: 1px;
+  --line-focus: 2px;
+  --line-contrast: 2px;
+  --line-selected-contrast: 3px;
+  --focus-relief: 0 0 0 2px #FFFFFF;
+  --primary-edge: #000000;
+  --primary-engrave: none;
+  --primary-relief: inset -1px -1px #000000, inset 1px 1px #FFFFFF, inset -2px -2px #808080, inset 2px 2px #DFDFDF;
+  --row-edge: #808080;
+  --row-selected: #000080;
+  --row-active: #000080;
+  --row-selected-relief: none;
+  --dialog-backdrop: #00000033;
+  --motion-fast: 0ms;
+  --motion-standard: 0ms;
+  --motion-none: 0ms;
+  --ease-standard: ease;
+  --key-travel: 1px;
+  --glass: none;
+  --glass-fallback: #FFFFFF;
+  --glass-filter: none;
+  --visualizer-bar: #000080;
+  --visualizer-bar-end: #000080;
+  --visualizer-background: #FFFFFF;
+  --visualizer-cap: #000000;
+  --visualizer-grid: #808080;
+  --visualizer-error: #800000;
+  --visualizer-label: #444444;
+  --visualizer-sheen: none;
+  --housing-linework: none;
+  --page-material: var(--paper);
+  --header-material: linear-gradient(90deg,#000080,#08629E);
+  --header-ink: #FFFFFF;
+  --dialog-material: #C0C0C0;
+  --titlebar-material: linear-gradient(90deg,#000080,#08629E);
+  --titlebar-ink: #FFFFFF;
+  --titlebar-padding: 6px;
+  --header-relief: inset 1px 1px #FFFFFF, inset -1px -1px #000000;
+  --glyph-rendering: crispEdges;
+  --display-sheen: var(--visualizer-sheen);
+  --visualizer-cap-outline: var(--visualizer-cap);
+  --gloss-line: var(--highlight);
+  --selected-text: #FFFFFF;
+  --selected-muted: #FFFFFF;
+  --control-ink: #000000;
+  --focus-inner: 1px dotted #000000;
+  --disabled-relief: 1px 1px #FFFFFF;
+}
+
+[data-theme="vintage"] .page { display:grid; grid-template-rows:52px auto; align-content:center; padding:24px; }
+[data-theme="vintage"] header { min-height:52px; padding:4px 8px; }
+[data-theme="vintage"] .instrument-wrap { padding:0; display:block; }
+[data-theme="vintage"] .instrument { border-top:0; }
+[data-theme="vintage"] .open { min-height:44px; padding:4px 10px; }
+
+@media(max-width:599px){[data-theme="vintage"] .page{padding:12px;grid-template-rows:52px auto;}[data-theme="vintage"] .open{min-height:44px;} }
+
+[data-theme="vintage"] {--body-opaque:var(--body-material);--well-opaque:var(--well-material);--display-material:var(--well-material);}
+
+[data-theme="vintage"] {--dialog-relief:6px 6px var(--ink);}

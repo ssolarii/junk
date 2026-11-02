@@ -1,0 +1,132 @@
+@font-face { font-family: Besley; src: url('../assets/fonts/Besley-Regular.ttf'); font-display: swap; }
+@font-face { font-family: Public; src: url('../assets/fonts/PublicSans-Regular.ttf'); font-display: swap; }
+@font-face { font-family: Public; src: url('../assets/fonts/PublicSans-SemiBold.ttf'); font-weight: 600; font-display: swap; }
+[data-theme="classic"] {
+  --paper: #F2E8D7; --face: #F7F0E4; --recess: #E0CCAA;
+  --ink: #46352A; --muted: #59432F; --brass: #825C23; --edge: #705537;
+  --body-material: linear-gradient(180deg, #F7F0E4, #EDE1CE);
+  --key-material: linear-gradient(180deg, #FBF5EA, #E4D4BA);
+  --key-pressed: linear-gradient(180deg, #D5BF9C, #E7D6B9);
+  --brass-material: linear-gradient(180deg, #886126, #78511E);
+  --brass-pressed: linear-gradient(180deg, #704C1A, #825C23);
+  --well-material: linear-gradient(180deg, #DAC4A0, #E4D2B2);
+  --highlight: #FFFAF0; --bottom-edge: #9C8160; --well-edge: #705537;
+  --contact-shadow: 0 3px 1px #72593D66;
+  --key-relief: inset 0 1px 0 var(--highlight), inset 0 -1px 0 var(--bottom-edge), var(--contact-shadow);
+  --well-relief: inset 0 3px 5px #654A2F40, inset 0 -1px 0 var(--highlight), 0 1px 0 var(--highlight);
+  --body-relief: inset 0 1px 0 var(--highlight), inset 0 -3px 0 #B79F7D, 0 7px 12px #5F452B22;
+  --emboss: 0 1px 0 #FFFAF0; --engrave: 0 -1px 0 #75573318;
+  --r-body: 18px; --r-key: 7px; --r-well: 9px;
+  /* Semantic roles and complete component typography/material contracts. */
+  --background: var(--paper); --surface: var(--face); --inset: var(--recess);
+  --text: var(--ink); --text-muted: var(--muted); --accent: var(--brass); --accent-contrast: var(--face);
+  --border: var(--edge); --focus-ring: var(--ink); --error: #794B35; --success: var(--brass);
+  --font-interface: Public, 'Segoe UI', sans-serif; --font-display: Besley, Georgia, serif;
+  --type-xs: 14px; --type-base: 16px; --type-help: 18px; --type-control: 24px;
+  --type-wordmark: 26px; --type-title: 36px; --type-title-compact: 32px; --type-title-mobile: 27px;
+  --type-dialog-title: 28px; --type-wordmark-mobile: 24px; --type-title-small: 24px;
+  --weight-interface: 400; --weight-emphasis: 600; --weight-display: 400;
+  --leading-interface: 1.5; --leading-title: 1.2; --leading-dialog: 1.3; --leading-station: 1.35;
+  --tracking-interface: normal; --tracking-title: -.6px; --tracking-title-mobile: -.4px;
+  --r-dot: 2px; --r-switch: 6px; --r-thumb: 4px; --r-panel: 12px;
+  --r-option: 4px; --r-field: 6px; --r-badge-small: 6px; --r-body-mobile: 12px; --r-badge-mobile: 7px;
+  --panel-radius: 12px 0 0 12px; --r-edge-to-edge: 0;
+  --line: 1px; --line-focus: 2px; --line-contrast: 2px; --line-selected-contrast: 3px;
+  --focus-relief: 0 0 0 2px var(--face);
+  --primary-edge: #624218; --primary-engrave: 0 -1px 0 #4B331C;
+  --primary-relief: inset 0 1px 0 #C5A16B, inset 0 -1px 0 #624218, 0 4px 1px #62421866;
+  --row-edge: #A58A66; --row-selected: #CFB58E; --row-active: #C5AA80;
+  --row-selected-relief: inset 3px 0 0 var(--brass); --dialog-backdrop: #46352A42;
+  --motion-fast: 100ms; --motion-standard: 240ms; --motion-none: 0ms; --ease-standard: ease;
+  --key-travel: 2px; --glass: none; --glass-fallback: var(--well-material); --glass-filter: none;
+  --visualizer-bar: #825C23; --visualizer-bar-end: #825C23; --visualizer-background: #E0CCAA;
+  --visualizer-cap: #46352A; --visualizer-grid: #705537; --visualizer-error: #794B35;
+  --visualizer-label: #59432F; --visualizer-sheen: linear-gradient(180deg, #FFFAF012, transparent 45%);
+  --housing-linework: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='3'%3E%3Cpath d='M0 1h3m2 1h2' stroke='%2346352A' stroke-opacity='.035'/%3E%3C/svg%3E");
+}
+
+[data-theme="classic"] {
+  --page-material: var(--paper);
+  --header-material: none;
+  --header-ink: var(--ink);
+  --dialog-material: var(--body-material);
+  --titlebar-material: none;
+  --titlebar-ink: var(--ink);
+  --titlebar-padding: 0;
+  --header-relief: none;
+  --glyph-rendering: auto;
+  --display-sheen: var(--visualizer-sheen);
+  --visualizer-cap-outline: var(--visualizer-cap);
+  --gloss-line: var(--highlight);
+}
+
+[data-theme="classic"] {--selected-text:var(--ink);--selected-muted:var(--muted);--control-ink:var(--ink);--focus-inner:none;--disabled-relief:var(--engrave);}
+
+[data-theme="classic"] {--body-opaque:var(--body-material);--well-opaque:var(--well-material);--display-material:var(--well-material);}
+
+[data-theme="classic"] {--dialog-relief:var(--body-relief);}
+
+/* Compact receiver: display and operating column have distinct jobs. */
+[data-theme="classic"] { --layout-housing-radius:12px; }
+[data-theme="classic"] .instrument-wrap {max-width:1000px;width:100%;align-self:center;}
+[data-theme="classic"] .instrument {
+ display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,1fr);
+ grid-template-areas:"display identity" "display status" "display primary" "display secondary" "utility utility";
+ gap:18px 28px;padding:28px;border-radius:var(--layout-housing-radius);
+}
+[data-theme="classic"] .upper,[data-theme="classic"] .transport {display:contents;}
+[data-theme="classic"] .identity {grid-area:identity;grid-template-columns:48px minmax(0,1fr);gap:14px;align-self:start;}
+[data-theme="classic"] .identity h1 {font-size:var(--type-title-compact);}
+[data-theme="classic"] .identity .badge {width:48px;height:48px;}
+[data-theme="classic"] .identity .badge svg {width:40px;height:40px;}
+[data-theme="classic"] .idle {grid-area:status;justify-self:start;align-self:start;}
+[data-theme="classic"] .readout {grid-area:display;align-self:stretch;padding:20px 20px 12px;justify-content:center;}
+[data-theme="classic"] .readout canvas {height:clamp(220px,25dvh,270px);}
+[data-theme="classic"] .transport-main {grid-area:primary;justify-content:center;gap:10px;}
+[data-theme="classic"] .key {min-width:52px;padding:0 12px;}
+[data-theme="classic"] .key.play {min-width:132px;}
+[data-theme="classic"] .secondary-keys {grid-area:secondary;justify-self:center;}
+[data-theme="classic"] .under {grid-area:utility;display:flex;width:100%;gap:10px;border-top:var(--line) solid var(--edge);padding-top:16px;}
+[data-theme="classic"] .under .help {margin-left:auto;}
+[data-theme="classic"] .error-actions {grid-column:1/-1;}
+[data-theme="classic"] .instrument::after {position:absolute;bottom:8px;left:28px;right:28px;margin:0;}
+[data-theme="classic"] #help-dialog {margin-right:max(16px,calc((100vw - 1000px)/2));}
+@media(max-width:760px){
+ [data-theme="classic"] .instrument-wrap {max-width:480px;justify-content:flex-start;padding:12px 0 28px;}
+ [data-theme="classic"] .instrument {
+  grid-template-columns:44px 44px minmax(80px,1fr) 44px 44px;
+  grid-template-areas:"identity identity identity identity identity" "status status status status status" "display display display display display" "favorite previous play next shuffle" "utility utility utility utility utility";
+  gap:18px 8px;padding:22px 16px;
+ }
+ [data-theme="classic"] .identity {grid-template-columns:48px minmax(0,1fr);}
+ [data-theme="classic"] .identity h1 {font-size:var(--type-title-mobile);}
+ [data-theme="classic"] .transport-main,[data-theme="classic"] .secondary-keys {display:contents;}
+ [data-theme="classic"] #favorite {grid-area:favorite;}
+ [data-theme="classic"] #previous {grid-area:previous;}
+ [data-theme="classic"] #play {grid-area:play;}
+ [data-theme="classic"] #next {grid-area:next;}
+ [data-theme="classic"] #shuffle {grid-area:shuffle;}
+ [data-theme="classic"] .key,[data-theme="classic"] .key.side {min-width:0;width:100%;height:52px;padding:0;}
+ [data-theme="classic"] .key.play {min-width:0;height:64px;}
+ [data-theme="classic"] .key.side span {display:none;}
+ [data-theme="classic"] .readout {padding:16px 12px 10px;}
+ [data-theme="classic"] .readout canvas {height:164px;}
+ [data-theme="classic"] .under {justify-content:flex-start;padding-top:16px;}
+ [data-theme="classic"] #help-dialog {margin:72px auto 0;}
+}
+@media(max-width:359px){
+ [data-theme="classic"] .instrument {gap:16px 4px;padding:20px 12px;}
+ [data-theme="classic"] .identity h1 {font-size:var(--type-title-small);}
+}
+@media(max-height:500px) and (min-width:761px){
+ [data-theme="classic"] .instrument {grid-template-columns:minmax(0,1.2fr) minmax(300px,1fr);gap:8px 22px;padding:18px 22px;}
+ [data-theme="classic"] .identity {grid-template-columns:40px minmax(0,1fr);gap:12px;}
+ [data-theme="classic"] .identity h1 {font-size:var(--type-title-small);}
+ [data-theme="classic"] .identity .badge {width:40px;height:40px;}
+ [data-theme="classic"] .identity .badge svg {width:34px;height:34px;}
+ [data-theme="classic"] .readout {padding:12px 14px 6px;}
+ [data-theme="classic"] .readout canvas {height:122px;}
+ [data-theme="classic"] .key,[data-theme="classic"] .key.side {height:44px;min-width:44px;}
+ [data-theme="classic"] .key.play {height:52px;min-width:116px;}
+ [data-theme="classic"] .under {padding-top:8px;}
+}

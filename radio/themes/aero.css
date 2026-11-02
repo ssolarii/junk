@@ -1,0 +1,193 @@
+@font-face {font-family:SourceSans3;src:url('../assets/fonts/SourceSans3-Regular.ttf');font-display:swap;}
+@font-face {font-family:SourceSans3;src:url('../assets/fonts/SourceSans3-Semibold.ttf');font-weight:600;font-display:swap;}
+[data-theme="aero"] {
+  --paper: #A9D8F5;
+  --face: #EEF7FB;
+  --recess: #E4F2FA;
+  --ink: #12324A;
+  --muted: #34536A;
+  --brass: #17677E;
+  --edge: #46718A;
+  --body-material: rgba(255,255,255,.42);
+  --key-material: linear-gradient(180deg,#F2FAFF 0%,#E4F3FC 49%,#B7D8EB 50%,#DEEFF8 100%);
+  --key-pressed: linear-gradient(180deg,#A8CCDF,#C5E1EE);
+  --brass-material: linear-gradient(180deg,#236D83 0%,#1D657E 49%,#18566F 50%,#216D85 100%);
+  --brass-pressed: linear-gradient(180deg,#164D65,#1A6077);
+  --well-material: #E4F2FA;
+  --highlight: #F4FAFD;
+  --bottom-edge: #46718A;
+  --well-edge: #46718A;
+  --contact-shadow: 0 2px 3px #346F9140;
+  --key-relief: inset 0 0 0 1px #F4FAFD, inset 0 1px 0 #FFFFFF, 0 2px 3px #346F9140;
+  --well-relief: inset 0 1px 3px #346F9126, inset 0 0 0 1px #FFFFFF99;
+  --body-relief: inset 0 0 0 1px #FFFFFFBF, inset 0 1px 0 #FFFFFF, 0 5px 12px #346F9140;
+  --emboss: 0 1px 0 #FFFFFFCC;
+  --engrave: 0 1px 0 #FFFFFF99;
+  --r-body: 16px;
+  --r-key: 8px;
+  --r-well: 12px;
+  --background: var(--paper);
+  --surface: var(--face);
+  --inset: var(--recess);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --accent: var(--brass);
+  --accent-contrast: #F4FAFD;
+  --border: var(--edge);
+  --focus-ring: #12324A;
+  --error: #823E3A;
+  --success: #216B59;
+  --font-interface: SourceSans3, sans-serif;
+  --font-display: SourceSans3, sans-serif;
+  --type-xs: 14px;
+  --type-base: 16px;
+  --type-help: 18px;
+  --type-control: 24px;
+  --type-wordmark: 26px;
+  --type-title: 36px;
+  --type-title-compact: 32px;
+  --type-title-mobile: 28px;
+  --type-dialog-title: 28px;
+  --type-wordmark-mobile: 24px;
+  --type-title-small: 24px;
+  --weight-interface: 400;
+  --weight-emphasis: 600;
+  --weight-display: 600;
+  --leading-interface: 1.5;
+  --leading-title: 1.2;
+  --leading-dialog: 1.3;
+  --leading-station: 1.35;
+  --tracking-interface: normal;
+  --tracking-title: -.4px;
+  --tracking-title-mobile: -.2px;
+  --r-dot: 2px;
+  --r-switch: 8px;
+  --r-thumb: 6px;
+  --r-panel: 12px;
+  --r-option: 4px;
+  --r-field: 7px;
+  --r-badge-small: 7px;
+  --r-body-mobile: 12px;
+  --r-badge-mobile: 7px;
+  --panel-radius: 12px 0 0 12px;
+  --r-edge-to-edge: 0;
+  --line: 1px;
+  --line-focus: 2px;
+  --line-contrast: 2px;
+  --line-selected-contrast: 3px;
+  --focus-relief: 0 0 0 2px #F4FAFD;
+  --primary-edge: #155068;
+  --primary-engrave: 0 1px 0 #FFFFFF26;
+  --primary-relief: inset 0 0 0 1px #C6EBF5, inset 0 1px 0 #FFFFFF99, 0 2px 3px #346F9140;
+  --row-edge: #46718A;
+  --row-selected: #BEDDEB;
+  --row-active: #A8CCDF;
+  --row-selected-relief: inset 3px 0 0 var(--brass);
+  --dialog-backdrop: #12324A44;
+  --motion-fast: 100ms;
+  --motion-standard: 240ms;
+  --motion-none: 0ms;
+  --ease-standard: ease;
+  --key-travel: 1px;
+  --glass: rgba(255,255,255,.42);
+  --glass-fallback: #D8EEF9;
+  --glass-filter: blur(10px);
+  --visualizer-bar: rgba(12,101,126,.85);
+  --visualizer-bar-end: rgba(14,107,92,.85);
+  --visualizer-background: #E4F2FA;
+  --visualizer-cap: #FFFFFF;
+  --visualizer-grid: #46718A;
+  --visualizer-error: #823E3A;
+  --visualizer-label: #34536A;
+  --visualizer-sheen: linear-gradient(180deg,#FFFFFF2E,transparent 45%);
+  --housing-linework: none;
+  --page-material: linear-gradient(180deg,#A9D8F5 0%,#E8F5FC 80%,#E0F1FA 100%);
+  --header-material: none;
+  --header-ink: var(--ink);
+  --dialog-material: #E4F2FA;
+  --titlebar-material: none;
+  --titlebar-ink: var(--ink);
+  --titlebar-padding: 0;
+  --header-relief: none;
+  --glyph-rendering: auto;
+  --display-sheen: var(--visualizer-sheen);
+  --visualizer-cap-outline: #0C5268;
+  --gloss-line: var(--highlight);
+  --display-material: rgba(255,255,255,.42);
+  --body-opaque: #D8EEF9;
+  --well-opaque: #E4F2FA;
+  --selected-text: var(--ink);
+  --selected-muted: var(--muted);
+  --control-ink: var(--ink);
+  --focus-inner: none;
+  --disabled-relief: var(--engrave);
+}
+
+[data-theme="aero"] {--dialog-relief:var(--body-relief);}
+
+/* A glass content stage and a detached command dock, rather than a surrounding card. */
+[data-theme="aero"] .instrument-wrap {max-width:1080px;width:100%;align-self:center;}
+[data-theme="aero"] .instrument {display:grid;grid-template-columns:1fr;grid-template-areas:"identity" "status" "display" "dock" "utility";gap:18px;padding:0;background:none;border:0;box-shadow:none;backdrop-filter:none;}
+[data-theme="aero"] .instrument::after {display:none;}
+[data-theme="aero"] .upper,[data-theme="aero"] .transport {display:contents;}
+[data-theme="aero"] .identity {grid-area:identity;grid-template-columns:56px minmax(0,1fr);justify-self:center;gap:16px;max-width:100%;}
+[data-theme="aero"] .identity .badge {width:56px;height:56px;}
+[data-theme="aero"] .identity .badge svg {width:46px;height:46px;}
+[data-theme="aero"] .idle {grid-area:status;justify-self:center;text-align:center;}
+[data-theme="aero"] .readout {grid-area:display;max-width:960px;justify-self:center;padding:24px 28px 16px;}
+[data-theme="aero"] .readout canvas {height:220px;}
+[data-theme="aero"] .command-deck {
+ grid-area:dock;display:grid;grid-template-columns:48px 52px 84px 52px 48px;grid-template-areas:"favorite previous play next shuffle";
+ gap:12px;align-items:center;justify-self:center;margin-top:8px;padding:14px 20px;
+ background:var(--body-material);border:var(--line) solid var(--edge);border-radius:var(--r-body);box-shadow:var(--body-relief);backdrop-filter:var(--glass-filter);
+}
+[data-theme="aero"] .secondary-keys,[data-theme="aero"] .transport-main {display:contents;}
+[data-theme="aero"] #favorite {grid-area:favorite;}
+[data-theme="aero"] #previous {grid-area:previous;}
+[data-theme="aero"] #play {grid-area:play;}
+[data-theme="aero"] #next {grid-area:next;}
+[data-theme="aero"] #shuffle {grid-area:shuffle;}
+[data-theme="aero"] .key {min-width:0;width:100%;height:52px;padding:0;}
+[data-theme="aero"] .key.play {min-width:0;width:84px;height:84px;border-radius:50%;flex-direction:column;gap:2px;top:-10px;}
+[data-theme="aero"] .key.play svg {width:20px;height:20px;}
+[data-theme="aero"] .key.side {min-width:0;width:48px;height:48px;padding:0;}
+[data-theme="aero"] .key.side span {display:none;}
+[data-theme="aero"] .under {grid-area:utility;display:flex;justify-self:center;align-items:center;width:min(360px,100%);gap:10px;border:0;padding:0;}
+[data-theme="aero"] .under .help {margin-left:auto;}
+[data-theme="aero"] .error-actions {justify-content:center;}
+[data-theme="aero"] #help-dialog {margin:auto;}
+[data-theme="aero"] .directory[open] {inset:8dvh 0 auto 0;margin:0 auto;width:min(680px,calc(100% - 40px));height:min(720px,84dvh);border-radius:var(--r-panel);}
+@media(max-width:650px){
+ [data-theme="aero"] .instrument-wrap {justify-content:flex-start;padding:20px 0 28px;}
+ [data-theme="aero"] .instrument {gap:16px;}
+ [data-theme="aero"] .identity {grid-template-columns:48px minmax(0,1fr);gap:12px;}
+ [data-theme="aero"] .identity h1 {font-size:var(--type-title-mobile);}
+ [data-theme="aero"] .identity .badge {width:48px;height:48px;}
+ [data-theme="aero"] .identity .badge svg {width:40px;height:40px;}
+ [data-theme="aero"] .readout {padding:18px 12px 10px;}
+ [data-theme="aero"] .readout canvas {height:176px;}
+ [data-theme="aero"] .command-deck {grid-template-columns:44px 44px 76px 44px 44px;gap:8px;padding:12px;}
+ [data-theme="aero"] .key.play {width:76px;height:76px;}
+ [data-theme="aero"] .key.side {width:44px;height:44px;}
+ [data-theme="aero"] .key {height:48px;}
+ [data-theme="aero"] .under {justify-content:center;}
+ [data-theme="aero"] .directory[open] {inset:0;width:100%;height:100dvh;margin:0;border-radius:var(--r-edge-to-edge);}
+}
+@media(max-width:359px){[data-theme="aero"] .command-deck {gap:6px;padding:8px;}}
+@media(max-height:500px) and (min-width:651px){
+ [data-theme="aero"] .instrument-wrap {padding:8px 0 24px;}
+ [data-theme="aero"] .instrument {gap:10px;}
+ [data-theme="aero"] .identity .badge {width:40px;height:40px;}
+ [data-theme="aero"] .identity .badge svg {width:34px;height:34px;}
+ [data-theme="aero"] .identity {grid-template-columns:40px minmax(0,1fr);gap:12px;}
+ [data-theme="aero"] .identity h1 {font-size:var(--type-title-small);}
+ [data-theme="aero"] .readout {padding:12px 20px 6px;}
+ [data-theme="aero"] .readout canvas {height:96px;}
+ [data-theme="aero"] .command-deck {padding:8px 16px;grid-template-columns:44px 44px 68px 44px 44px;gap:10px;}
+ [data-theme="aero"] .key.play {height:68px;width:68px;top:-8px;}
+ [data-theme="aero"] .key {height:44px;}
+ [data-theme="aero"] .under {height:44px;}
+}
+@supports not(backdrop-filter:blur(1px)){[data-theme="aero"] .command-deck {background:var(--body-opaque);}}
+@media(prefers-reduced-transparency:reduce),(forced-colors:active),(prefers-contrast:more){[data-theme="aero"] .command-deck {background:var(--body-opaque);backdrop-filter:none;}}
+@media(forced-colors:active),(prefers-contrast:more){[data-theme="aero"] .command-deck {border:var(--line-contrast) solid currentColor;box-shadow:none;}}

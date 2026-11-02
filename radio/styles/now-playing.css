@@ -1,0 +1,41 @@
+.now-playing {grid-column:2;min-width:0;margin-top:14px;max-width:52ch;}
+/* Theme column gaps should not become extra gaps between the song rows. */
+.identity {row-gap:0;align-content:start;}
+.identity h1,.identity .genre,.now-playing {align-self:start;}
+.now-playing p {margin:0;overflow-wrap:anywhere;}
+.now-label {font-size:var(--type-xs);color:var(--muted);margin-bottom:4px!important;}
+.now-title {font-size:var(--type-base);font-weight:var(--weight-emphasis);line-height:var(--leading-station);}
+.now-artist {font-size:var(--type-xs);color:var(--muted);margin-top:3px!important;}
+.now-art-source {display:inline-flex;align-items:center;min-height:44px;font-size:var(--type-xs);color:var(--muted);text-underline-offset:3px;}
+.now-art-source:focus-visible {outline:var(--line-focus) solid var(--focus-ring);outline-offset:2px;}
+.identity:has(.now-playing:not([hidden])) {grid-template-columns:88px minmax(0,1fr);}
+.identity:has(.now-playing:not([hidden])) .badge {width:88px;height:88px;grid-row:1/4;align-self:start;}
+.identity:has(.now-playing:not([hidden])) .badge svg {width:64px;height:64px;}
+/* Let the canvas resize with the receiver as song information grows, so its
+   separately positioned axis/grid layers stay aligned with measured bars. */
+[data-theme="classic"] #visualizer {flex-grow:1;}
+/* Keep controls compact even when a neighboring display makes a grid row taller. */
+.key {height:48px;}
+.key.play {height:56px;}
+[data-theme="classic"] .transport-main,[data-theme="classic"] .secondary-keys {align-self:center;}
+[data-theme="classic"] .key,[data-theme="classic"] .key.side {height:48px;}
+[data-theme="classic"] .key.play {height:56px;}
+[data-theme="minimalist"] .key.play {height:56px;}
+[data-theme="aero"] .command-deck {grid-template-columns:44px 48px 56px 48px 44px;}
+[data-theme="aero"] .key {height:48px;}
+[data-theme="aero"] .key.side {width:44px;height:44px;}
+[data-theme="aero"] .key.play {width:56px;height:56px;top:-6px;}
+.sound-option {display:flex;align-items:center;gap:12px;min-height:44px;cursor:pointer;}
+.sound-option input {width:22px;height:22px;margin:0;accent-color:var(--accent);}
+.sound-note {font-size:var(--type-xs);color:var(--muted);margin:6px 0 0;}
+#help-dialog h3 {font-size:var(--type-base);margin-top:24px;}
+@media(max-width:599px){
+ .identity:has(.now-playing:not([hidden])) {grid-template-columns:64px minmax(0,1fr);}
+ .identity:has(.now-playing:not([hidden])) .badge {width:64px;height:64px;}
+ .identity:has(.now-playing:not([hidden])) .badge svg {width:48px;height:48px;}
+ .now-playing {margin-top:12px;}
+}
+@media(max-height:500px) and (min-width:600px){
+ .identity:has(.now-playing:not([hidden])) {grid-template-columns:64px minmax(0,1fr);}
+ .identity:has(.now-playing:not([hidden])) .badge {width:64px;height:64px;}
+}
